@@ -52,12 +52,12 @@
             La Odisea nos espera ¿Cuándo emprendemos nuestro viaje?
           </p>
           <div class="btn-group">
-            <button class="btn btn-primary" onclick="showScreen('screen-yes')">
-              ⚔️ Viernes para arrancar
-            </button>
-            <button class="btn btn-secondary" onclick="showScreen('screen-yes')">
-              🏛️ Domingo para rematar
-            </button>
+            <button class="btn btn-primary" onclick="registrarRespuesta('Viernes'); showScreen('screen-yes')">
+  	      ⚔️ Viernes para arrancar
+	    </button>
+            <button class="btn btn-secondary" onclick="registrarRespuesta('Domingo'); showScreen('screen-yes')">
+  	      🏛️ Domingo para rematar
+	    </button>
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@
         <div class="screen-inner">
           <img src="Genial.jpg" alt="Genial" class="screen-img" />
           <p class="message">
-            Genial, espero ese día con ansias ❤️
+            Genial, espero ese día con ansias
           </p>
         </div>
       </section>
@@ -98,9 +98,9 @@
             ¿Estás segura, segurísima? 👀
           </p>
           <div class="btn-group">
-            <button class="btn btn-primary" onclick="showScreen('screen-sure')">
-              Sí, estoy segura
-            </button>
+            <button class="btn btn-primary" onclick="registrarRespuesta('No salir'); showScreen('screen-sure')">
+  	    Sí, estoy segura
+          </button>
             <button class="btn btn-secondary" onclick="showScreen('screen-initial')">
               Cambié de opinión
             </button>

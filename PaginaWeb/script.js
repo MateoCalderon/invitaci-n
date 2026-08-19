@@ -5,6 +5,32 @@
 'use strict';
 
 /* ----------------------------------------------------------
+   0. REGISTRO DE RESPUESTAS — Google Apps Script endpoint
+   ---------------------------------------------------------- */
+
+const ENDPOINT_URL =
+  'https://script.google.com/macros/s/AKfycbycWNgbvajJlXsxEU-PpbqJkNmBJr2yabm52vyddI1WcpgPRaiTGVchoEuc6rTltizScw/exec';
+
+/**
+ * Envía la opción elegida al endpoint en segundo plano.
+ * Usa mode:'no-cors' porque Apps Script redirige el POST y
+ * no devuelve cabeceras CORS — la respuesta es opaca pero
+ * el dato sí llega a Google Sheets.
+ * Nunca interrumpe el flujo de pantallas aunque falle.
+ *
+ * @param {'Viernes'|'Domingo'|'No salir'} opcion
+ */
+function registrarRespuesta(opcion) {
+  fetch(ENDPOINT_URL, {
+    method : 'POST',
+    mode   : 'no-cors',          // evita bloqueo por CORS de Apps Script
+    body   : JSON.stringify({ respuesta: opcion })
+  }).catch(function (err) {
+    console.warn('[Odisea] No se pudo registrar la respuesta:', err);
+  });
+}
+
+/* ----------------------------------------------------------
    1. GENERADOR DE PARTÍCULAS DE FONDO
    ---------------------------------------------------------- */
 (function generateParticles() {
