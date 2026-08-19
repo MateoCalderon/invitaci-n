@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Una invitación especial para ver La Odisea este domingo" />
+  <title>¿Qué dices?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Partículas de fondo -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Contenedor principal -->
+  <main class="card-wrapper" role="main">
+    <div class="card" id="card">
+
+      <!-- Pantalla 1: Pregunta inicial -->
+      <section class="screen active" id="screen-initial" aria-label="Invitación">
+        <div class="screen-inner">
+          <div class="icon-top" aria-hidden="true">🎬</div>
+          <img src="Odisea.jpg" alt="La Odisea" class="screen-img screen-img--hero" />
+          <h1 class="question">
+            ¿Te gustaría ir a ver
+            <em>La Odisea</em>
+            ? ¿Qué dices?
+          </h1>
+          <div class="btn-group">
+            <button id="btn-yes" class="btn btn-primary" onclick="showScreen('screen-choice')">
+              Sí, me gustaría
+            </button>
+            <button id="btn-no" class="btn btn-secondary" onclick="showScreen('screen-no')">
+              No
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla 2: Elección del día -->
+      <section class="screen" id="screen-choice" aria-label="Elección del día">
+        <div class="screen-inner">
+          <img src="Eleccion.jpg" alt="La Odisea nos espera" class="screen-img" />
+          <p class="message">
+            La Odisea nos espera ¿Cuándo emprendemos nuestro viaje?
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="showScreen('screen-yes')">
+              ⚔️ Viernes para arrancar
+            </button>
+            <button class="btn btn-secondary" onclick="showScreen('screen-yes')">
+              🏛️ Domingo para rematar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla 3: Respuesta "Sí" -->
+      <section class="screen" id="screen-yes" aria-label="Respuesta positiva">
+        <div class="screen-inner">
+          <img src="Genial.jpg" alt="Genial" class="screen-img" />
+          <p class="message">
+            Genial, espero ese día con ansias ❤️
+          </p>
+        </div>
+      </section>
+
+      <!-- Pantalla 3: Respuesta "No" -->
+      <section class="screen" id="screen-no" aria-label="Respuesta negativa">
+        <div class="screen-inner">
+          <img src="Ciego.jpg" alt="Ups" class="screen-img" />
+          <p class="message">
+            Ups, creo que te confundiste de botón
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="showScreen('screen-initial')">
+              Atrás
+            </button>
+            <button class="btn btn-primary" onclick="showScreen('screen-confirm')">
+              No, no me confundí
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla 4: Confirmación de "No" -->
+      <section class="screen" id="screen-confirm" aria-label="Confirmación de rechazo">
+        <div class="screen-inner">
+          <img src="Segura.jpg" alt="¿Estás segura?" class="screen-img" />
+          <p class="message">
+            ¿Estás segura, segurísima? 👀
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="showScreen('screen-sure')">
+              Sí, estoy segura
+            </button>
+            <button class="btn btn-secondary" onclick="showScreen('screen-initial')">
+              Cambié de opinión
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla 5: "Sí, estoy segura" -->
+      <section class="screen" id="screen-sure" aria-label="Confirmación final">
+        <div class="screen-inner">
+          <img src="CorazonCoreano.jpg" alt="Corazón" class="screen-img" />
+          <p class="message">
+            Está bien, entiendo.
+          </p>
+        </div>
+      </section>
+
+    </div><!-- /.card -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
