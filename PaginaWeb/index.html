@@ -4,13 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Una invitación especial para ver La Odisea este domingo" />
+  <meta name="description" content="Una invitación especial para ver La Odisea" />
   <title>¿Qué dices?</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
     rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -23,102 +26,185 @@
   <main class="card-wrapper" role="main">
     <div class="card" id="card">
 
-      <!-- Pantalla 1: Pregunta inicial -->
+      <!-- PANTALLA INICIAL -->
       <section class="screen active" id="screen-initial" aria-label="Invitación">
         <div class="screen-inner">
+
           <div class="icon-top" aria-hidden="true">🎬</div>
-          <img src="Odisea.jpg" alt="La Odisea" class="screen-img screen-img--hero" />
+
+          <img src="Odisea.jpg" alt="La Odisea"
+               class="screen-img screen-img--hero" />
+
           <h1 class="question">
             ¿Te gustaría ir a ver
             <em>La Odisea</em>
-             al Quicentro Norte? ¿Qué dices?
+            al Quicentro Norte este domingo?
           </h1>
+
           <div class="btn-group">
-            <button id="btn-yes" class="btn btn-primary" onclick="showScreen('screen-choice')">
+
+            <button
+              class="btn btn-primary"
+              onclick="registrarRespuesta('Sí, me gustaría'); showScreen('screen-yes')">
               Sí, me gustaría
             </button>
-            <button id="btn-no" class="btn btn-secondary" onclick="showScreen('screen-no')">
-              No
+
+            <button
+              class="btn btn-secondary"
+              onclick="showScreen('screen-no')">
+              No lo creo
             </button>
+
+             <button
+  		class="btn btn-weekend"
+  		onclick="registrarRespuesta('Sí, pero puede ser el otro fin de semana'); showScreen('screen-other-weekend')">
+  		Sí, pero puede ser el otro fin de semana
+	     </button>
+
           </div>
         </div>
       </section>
 
-      <!-- Pantalla 2: Elección del día -->
-      <section class="screen" id="screen-choice" aria-label="Elección del día">
-        <div class="screen-inner">
-          <img src="Eleccion.jpg" alt="La Odisea nos espera" class="screen-img" />
-          <p class="message">
-            La Odisea nos espera ¿Cuándo emprendemos nuestro viaje?
-          </p>
-          <div class="btn-group">
-            <button class="btn btn-primary" onclick="registrarRespuesta('Viernes'); showScreen('screen-yes')">
-  	      ⚔️ Viernes para arrancar
-	    </button>
-            <button class="btn btn-secondary" onclick="registrarRespuesta('Domingo'); showScreen('screen-yes')">
-  	      🏛️ Domingo para rematar
-	    </button>
-          </div>
-        </div>
-      </section>
 
-      <!-- Pantalla 3: Respuesta "Sí" -->
+      <!-- RESPUESTA: SÍ -->
       <section class="screen" id="screen-yes" aria-label="Respuesta positiva">
         <div class="screen-inner">
+
+          <button
+            class="back-arrow"
+            onclick="showScreen('screen-initial')"
+            aria-label="Volver al inicio">
+            ←
+          </button>
+
           <img src="Genial.jpg" alt="Genial" class="screen-img" />
+
           <p class="message">
-            Genial, espero ese día con ansias
+            Genial, espero ese día con ansias 
           </p>
+
         </div>
       </section>
 
-      <!-- Pantalla 3: Respuesta "No" -->
+
+      <!-- RESPUESTA: OTRO FIN DE SEMANA -->
+      <section
+        class="screen"
+        id="screen-other-weekend"
+        aria-label="Otro fin de semana">
+
+        <div class="screen-inner">
+
+          <button
+            class="back-arrow"
+            onclick="showScreen('screen-initial')"
+            aria-label="Volver al inicio">
+            ←
+          </button>
+
+          <img src="Bien.jpg"
+               alt="No hay problema"
+               class="screen-img" />
+
+          <p class="message">
+            No hay problema, veamos un buen día 
+          </p>
+
+        </div>
+      </section>
+
+
+      <!-- RESPUESTA: NO -->
       <section class="screen" id="screen-no" aria-label="Respuesta negativa">
         <div class="screen-inner">
+
           <img src="Ciego.jpg" alt="Ups" class="screen-img" />
+
           <p class="message">
             Ups, creo que te confundiste de botón
           </p>
+
           <div class="btn-group">
-            <button class="btn btn-secondary" onclick="showScreen('screen-initial')">
+
+            <button
+              class="btn btn-secondary"
+              onclick="showScreen('screen-initial')">
               Atrás
             </button>
-            <button class="btn btn-primary" onclick="showScreen('screen-confirm')">
+
+            <button
+              class="btn btn-primary"
+              onclick="showScreen('screen-confirm')">
               No, no me confundí
             </button>
+
           </div>
         </div>
       </section>
 
-      <!-- Pantalla 4: Confirmación de "No" -->
-      <section class="screen" id="screen-confirm" aria-label="Confirmación de rechazo">
+
+      <!-- CONFIRMACIÓN -->
+      <section
+        class="screen"
+        id="screen-confirm"
+        aria-label="Confirmación de rechazo">
+
         <div class="screen-inner">
-          <img src="Segura.jpg" alt="¿Estás segura?" class="screen-img" />
+
+          <img src="Segura.jpg"
+               alt="¿Estás segura?"
+               class="screen-img" />
+
           <p class="message">
             ¿Estás segura, segurísima? 👀
           </p>
+
           <div class="btn-group">
-            <button class="btn btn-primary" onclick="registrarRespuesta('No salir'); showScreen('screen-sure')">
-  	    Sí, estoy segura
-          </button>
-            <button class="btn btn-secondary" onclick="showScreen('screen-initial')">
+
+            <button
+              class="btn btn-primary"
+              onclick="registrarRespuesta('No salir'); showScreen('screen-sure')">
+              Sí, estoy segura
+            </button>
+
+            <button
+              class="btn btn-secondary"
+              onclick="showScreen('screen-initial')">
               Cambié de opinión
             </button>
+
           </div>
         </div>
       </section>
 
-      <!-- Pantalla 5: "Sí, estoy segura" -->
-      <section class="screen" id="screen-sure" aria-label="Confirmación final">
+
+      <!-- RESPUESTA FINAL: NO SALIR -->
+      <section
+        class="screen"
+        id="screen-sure"
+        aria-label="Confirmación final">
+
         <div class="screen-inner">
-          <img src="CorazonCoreano.jpg" alt="Corazón" class="screen-img" />
+
+          <button
+            class="back-arrow"
+            onclick="showScreen('screen-initial')"
+            aria-label="Volver al inicio">
+            ←
+          </button>
+
+          <img src="CorazonCoreano.jpg"
+               alt="Corazón"
+               class="screen-img" />
+
           <p class="message">
             Está bien, entiendo.
           </p>
+
         </div>
       </section>
 
-    </div><!-- /.card -->
+    </div>
   </main>
 
   <script src="script.js"></script>
