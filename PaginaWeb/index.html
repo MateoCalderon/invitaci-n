@@ -1,213 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Una invitación especial para ver La Odisea" />
-  <title>¿Qué dices?</title>
+  <meta name="description" content="Una galaxia de flores amarillas flotando en el espacio — experiencia interactiva" />
+  <title>Galaxia de Flores Amarillas 🌻</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lato:wght@300&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-  <!-- Partículas de fondo -->
-  <div class="particles" id="particles" aria-hidden="true"></div>
+  <!-- Canvas principal de la galaxia -->
+  <canvas id="galaxyCanvas" aria-label="Galaxia de Flores Amarillas animada"></canvas>
 
-  <!-- Contenedor principal -->
-  <main class="card-wrapper" role="main">
-    <div class="card" id="card">
+  <!-- Canvas de flores detalladas (primer plano) -->
+  <canvas id="flowerCanvas" aria-label="Flores en primer plano"></canvas>
 
-      <!-- PANTALLA INICIAL -->
-      <section class="screen active" id="screen-initial" aria-label="Invitación">
-        <div class="screen-inner">
+  <!-- Texto principal -->
+  <header class="main-title" id="mainTitle" aria-label="Título principal">
+    <h1>Feliz día de las<br>Flores Amarillas 🌻</h1>
+  </header>
 
-          <div class="icon-top" aria-hidden="true">🎬</div>
-
-          <img src="Odisea.jpg" alt="La Odisea"
-               class="screen-img screen-img--hero" />
-
-          <h1 class="question">
-            ¿Te gustaría ir a ver
-            <em>La Odisea</em>
-            al Quicentro Norte este domingo?
-          </h1>
-
-          <div class="btn-group">
-
-            <button
-              class="btn btn-primary"
-              onclick="registrarRespuesta('Sí, me gustaría'); showScreen('screen-yes')">
-              Sí, me gustaría
-            </button>
-
-            <button
-              class="btn btn-secondary"
-              onclick="showScreen('screen-no')">
-              No lo creo
-            </button>
-
-             <button
-  		class="btn btn-weekend"
-  		onclick="registrarRespuesta('Sí, pero puede ser el otro fin de semana'); showScreen('screen-other-weekend')">
-  		Sí, pero puede ser el otro fin de semana
-	     </button>
-
-          </div>
-        </div>
-      </section>
-
-
-      <!-- RESPUESTA: SÍ -->
-      <section class="screen" id="screen-yes" aria-label="Respuesta positiva">
-        <div class="screen-inner">
-
-          <button
-            class="back-arrow"
-            onclick="showScreen('screen-initial')"
-            aria-label="Volver al inicio">
-            ←
-          </button>
-
-          <img src="Genial.jpg" alt="Genial" class="screen-img" />
-
-          <p class="message">
-            Genial, espero ese día con ansias 
-          </p>
-
-        </div>
-      </section>
-
-
-      <!-- RESPUESTA: OTRO FIN DE SEMANA -->
-      <section
-        class="screen"
-        id="screen-other-weekend"
-        aria-label="Otro fin de semana">
-
-        <div class="screen-inner">
-
-          <button
-            class="back-arrow"
-            onclick="showScreen('screen-initial')"
-            aria-label="Volver al inicio">
-            ←
-          </button>
-
-          <img src="Bien.jpg"
-               alt="No hay problema"
-               class="screen-img" />
-
-          <p class="message">
-            No hay problema, veamos un buen día 
-          </p>
-
-        </div>
-      </section>
-
-
-      <!-- RESPUESTA: NO -->
-      <section class="screen" id="screen-no" aria-label="Respuesta negativa">
-        <div class="screen-inner">
-
-          <img src="Ciego.jpg" alt="Ups" class="screen-img" />
-
-          <p class="message">
-            Ups, creo que te confundiste de botón
-          </p>
-
-          <div class="btn-group">
-
-            <button
-              class="btn btn-secondary"
-              onclick="showScreen('screen-initial')">
-              Atrás
-            </button>
-
-            <button
-              class="btn btn-primary"
-              onclick="showScreen('screen-confirm')">
-              No, no me confundí
-            </button>
-
-          </div>
-        </div>
-      </section>
-
-
-      <!-- CONFIRMACIÓN -->
-      <section
-        class="screen"
-        id="screen-confirm"
-        aria-label="Confirmación de rechazo">
-
-        <div class="screen-inner">
-
-          <img src="Segura.jpg"
-               alt="¿Estás segura?"
-               class="screen-img" />
-
-          <p class="message">
-            ¿Estás segura, segurísima? 👀
-          </p>
-
-          <div class="btn-group">
-
-            <button
-              class="btn btn-primary"
-              onclick="registrarRespuesta('No salir'); showScreen('screen-sure')">
-              Sí, estoy segura
-            </button>
-
-            <button
-              class="btn btn-secondary"
-              onclick="showScreen('screen-initial')">
-              Cambié de opinión
-            </button>
-
-          </div>
-        </div>
-      </section>
-
-
-      <!-- RESPUESTA FINAL: NO SALIR -->
-      <section
-        class="screen"
-        id="screen-sure"
-        aria-label="Confirmación final">
-
-        <div class="screen-inner">
-
-          <button
-            class="back-arrow"
-            onclick="showScreen('screen-initial')"
-            aria-label="Volver al inicio">
-            ←
-          </button>
-
-          <img src="CorazonCoreano.jpg"
-               alt="Corazón"
-               class="screen-img" />
-
-          <p class="message">
-            Está bien, entiendo.
-          </p>
-
-        </div>
-      </section>
-
-    </div>
-  </main>
+  <!-- Overlay de partículas de click -->
+  <div id="clickParticles" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>
-
 </html>
