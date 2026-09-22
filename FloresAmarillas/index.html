@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Una galaxia de flores amarillas flotando en el espacio — experiencia interactiva" />
+  <title>Galaxia de Flores Amarillas 🌻</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lato:wght@300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Canvas principal de la galaxia -->
+  <canvas id="galaxyCanvas" aria-label="Galaxia de Flores Amarillas animada"></canvas>
+
+  <!-- Canvas de flores detalladas (primer plano) -->
+  <canvas id="flowerCanvas" aria-label="Flores en primer plano"></canvas>
+
+  <!-- Texto principal -->
+  <header class="main-title" id="mainTitle" aria-label="Título principal">
+    <h1>Feliz dia de<br>Las flores Amarillas🌻</h1>
+  </header>
+
+  <!-- Overlay de partículas de click -->
+  <div id="clickParticles" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
