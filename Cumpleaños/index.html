@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+<title>Un regalo para ti</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="wrapper"><div class="hover" id="gift">
+    <div class="scene"><div class="box" id="box">
+      <div class="f fr"></div><div class="f bk"></div><div class="f lf"></div><div class="f rt"></div><div class="f bt"></div><div class="f in"></div>
+      <div class="lidwrap">
+        <div class="f fr"></div><div class="f bk"></div><div class="f lf"></div><div class="f rt"></div><div class="f tp"></div>
+        <div class="bow"><i class="a"></i><i class="b"></i><b></b></div>
+      </div>
+    </div></div>
+    <div class="shadow"></div>
+  </div></div>
+  <div class="hint">✨ Toca el regalo ✨</div>
+</div>
+
+<div class="msg" id="msg"><div class="badge" id="badge"><div class="paper"><div class="deco" id="deco"></div><div class="w w1">Feliz</div><div class="w w2">Cumpleaños!</div><div class="w w3">🌹 a la mejor mamá del mundo 🌹</div></div></div></div>
+
+<div class="back" id="back">
+  <div class="card" id="card">
+    <p>Quizá un día como hoy, hace muchos años...</p>
+    <div class="row">
+      <input id="d" type="text" inputmode="numeric" maxlength="2" placeholder="Día" aria-label="Día">
+      <input id="m" type="text" inputmode="numeric" maxlength="2" placeholder="Mes" aria-label="Mes">
+      <input id="y" type="text" inputmode="numeric" maxlength="4" placeholder="Año" aria-label="Año">
+    </div>
+    <div class="err" id="err"></div>
+    <button id="ok">Aceptar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
